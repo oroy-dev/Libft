@@ -6,7 +6,7 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 13:13:16 by oroy              #+#    #+#             */
-/*   Updated: 2023/02/16 10:22:32 by oroy             ###   ########.fr       */
+/*   Updated: 2023/03/08 18:48:49 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_atoi(const char *str)
 	int		n;
 	int		minus;
 
+	if (!str)
+		return (0);
 	n = 0;
 	minus = 1;
 	p = (char *)str;
@@ -37,12 +39,3 @@ int	ft_atoi(const char *str)
 	}
 	return (n * minus);
 }
-
-// int	main(void)
-// {
-// 	const char	str[] = "\e475";
-
-// 	printf ("%d\n", ft_atoi(str));
-// 	printf ("%d\n", atoi(str));
-// 	return (0);
-// }

@@ -6,21 +6,16 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:51:59 by oroy              #+#    #+#             */
-/*   Updated: 2023/02/22 15:07:10 by oroy             ###   ########.fr       */
+/*   Updated: 2023/03/11 20:10:17 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include "ft_putchar_fd.c"
 
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putchar_fd('2', fd);
-		ft_putnbr_fd(147483648, fd);
-	}
+		ft_putstr_fd("-2147483648", fd);
 	else if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
@@ -34,9 +29,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd(n % 10 + 48, fd);
 	}
 }
-
-// int	main(void)
-// {
-// 	ft_putnbr_fd(15, 1);
-// 	return (0);
-// }

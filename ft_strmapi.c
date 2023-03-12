@@ -6,19 +6,11 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:21:31 by oroy              #+#    #+#             */
-/*   Updated: 2023/02/22 14:42:15 by oroy             ###   ########.fr       */
+/*   Updated: 2023/03/08 18:31:09 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include "ft_strlen.c"
-// #include "ft_toupper.c"
-
-// char	f(unsigned int i, char c)
-// {
-// 	(void) i;
-// 	return (ft_toupper(c));
-// }
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -39,11 +31,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	ptr[i] = '\0';
 	return (ptr);
 }
-
-// int	main(void)
-// {
-// 	const char	s[] = "_";
-
-// 	printf ("%s\n", ft_strmapi(s, f));
-// 	return (0);
-// }

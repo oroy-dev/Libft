@@ -6,7 +6,7 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:41:56 by oroy              #+#    #+#             */
-/*   Updated: 2023/02/16 10:22:19 by oroy             ###   ########.fr       */
+/*   Updated: 2023/03/02 18:35:14 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,3 @@ int	ft_isalnum(int c)
 	else
 		return (0);
 }
-
-// int	main(void)
-// {
-// 	char	c;
-
-// 	c = 'z';
-// 	printf("%i\n", ft_isalnum(c));
-// 	printf("%i\n", isalnum(c));
-// 	return (0);
-// }

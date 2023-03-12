@@ -6,18 +6,11 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:21:31 by oroy              #+#    #+#             */
-/*   Updated: 2023/02/22 15:12:08 by oroy             ###   ########.fr       */
+/*   Updated: 2023/03/08 15:47:57 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-// void	f(unsigned int i, char *c)
-// {
-// 	(void) i;
-// 	if (*c >= 'a' && *c <= 'z')
-// 		*c -= 32;
-// }
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
@@ -32,12 +25,3 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		i++;
 	}
 }
-
-// int	main(void)
-// {
-// 	char	s[] = "Hello World";
-
-// 	ft_striteri(s, f);
-// 	printf ("%s\n", s);
-// 	return (0);
-// }

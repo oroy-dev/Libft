@@ -6,7 +6,7 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:41:56 by oroy              #+#    #+#             */
-/*   Updated: 2023/02/16 10:22:16 by oroy             ###   ########.fr       */
+/*   Updated: 2023/03/07 15:11:35 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,3 @@ int	ft_isalpha(int c)
 	else
 		return (0);
 }
-
-// int	main(void)
-// {
-// 	char	c;
-
-// 	c = 'f';
-// 	printf("%i\n", ft_isalpha(c));
-// 	printf("%i\n", isalpha(c));
-// 	return (0);
-// }

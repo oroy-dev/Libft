@@ -6,16 +6,13 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:32:25 by oroy              #+#    #+#             */
-/*   Updated: 2023/02/27 13:45:54 by oroy             ###   ########.fr       */
+/*   Updated: 2023/03/08 14:32:37 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h> // To delete
-# include <string.h> // To delete
-# include <ctype.h> // To delete
 # include <unistd.h>
 # include <stdlib.h>
 

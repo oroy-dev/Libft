@@ -6,7 +6,7 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:36:18 by oroy              #+#    #+#             */
-/*   Updated: 2023/02/20 19:09:18 by oroy             ###   ########.fr       */
+/*   Updated: 2023/03/08 15:00:33 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	i;
 	size_t	j;
 
+	if (!haystack || !needle || !*needle)
+		return ((char *)haystack);
 	i = 0;
 	j = 0;
-	if (!*needle)
-		return ((char *)haystack);
 	while (haystack[i] && i < len)
 	{
 		if (haystack[i] == needle[j])
@@ -36,15 +36,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
-
-// int	main(void)
-// {
-// 	const char	h[] = "Hello World";
-// 	const char	n[] = "War";
-// 	size_t		l;
-
-// 	l = 15;
-// 	printf ("%s\n", ft_strnstr(h, n, l));
-// 	printf ("%s\n", strnstr(h, n, l));
-// 	return (0);
-// }

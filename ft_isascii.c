@@ -6,7 +6,7 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:41:56 by oroy              #+#    #+#             */
-/*   Updated: 2023/02/16 10:22:13 by oroy             ###   ########.fr       */
+/*   Updated: 2023/03/02 18:35:11 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,3 @@ int	ft_isascii(int c)
 	else
 		return (0);
 }
-
-// int	main(void)
-// {
-// 	char	c;
-
-// 	c = ' ';
-// 	printf("%i\n", ft_isascii(c));
-// 	printf("%i\n", isascii(c));
-// 	return (0);
-// }

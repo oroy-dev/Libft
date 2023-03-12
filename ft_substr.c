@@ -6,12 +6,11 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:25:33 by oroy              #+#    #+#             */
-/*   Updated: 2023/02/23 13:06:53 by oroy             ###   ########.fr       */
+/*   Updated: 2023/03/08 15:31:33 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include "ft_strlen.c"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -40,16 +39,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	dst[i] = '\0';
 	return (dst);
 }
-
-// int	main(void)
-// {
-// 	char			*s;
-// 	unsigned int	start;
-// 	size_t			len;
-
-// 	s = "";
-// 	start = 1;
-// 	len = 1;
-// 	printf ("%s\n", ft_substr(s, start, len));
-// 	return (0);
-// }

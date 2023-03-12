@@ -6,7 +6,7 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:41:56 by oroy              #+#    #+#             */
-/*   Updated: 2023/02/16 10:22:10 by oroy             ###   ########.fr       */
+/*   Updated: 2023/03/01 19:07:26 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,3 @@ int	ft_isdigit(int c)
 	else
 		return (0);
 }
-
-// int	main(void)
-// {
-// 	char	c;
-
-// 	c = 'g';
-// 	printf("%i\n", ft_isdigit(c));
-// 	printf("%i\n", isdigit(c));
-// 	return (0);
-// }

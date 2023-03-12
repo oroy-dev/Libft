@@ -6,7 +6,7 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:57:58 by oroy              #+#    #+#             */
-/*   Updated: 2023/02/20 17:35:24 by oroy             ###   ########.fr       */
+/*   Updated: 2023/03/08 14:41:11 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	while (i < n)
 	{
@@ -25,16 +27,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-
-// int	main(void)
-// {
-// 	const char	s[] = "";
-// 	int			c;
-// 	size_t		n;
-
-// 	c = '\0';
-// 	n = 100;
-// 	printf ("%s\n", ft_memchr(s, c, n));
-// 	printf ("%s\n", memchr(s, c, n));
-// 	return (0);
-// }

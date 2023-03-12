@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/15 10:43:51 by oroy              #+#    #+#              #
-#    Updated: 2023/02/27 20:23:00 by oroy             ###   ########.fr        #
+#    Updated: 2023/03/09 17:24:01 by oroy             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,9 +67,11 @@ OBJBONUS = $(BONUS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): libft.h
-	$(CC) $(CFLAGS) -c $(SRC)
+$(NAME): $(OBJ)
 	$(AR) $(NAME) $(OBJ)
+	
+%.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
 	$(RM) $(OBJ) $(OBJBONUS)
@@ -79,6 +81,7 @@ fclean: clean
 
 re: fclean all
 
-bonus: $(NAME) $(OBJBONUS)
-	$(CC) $(CFLAGS) -c $(BONUS)
+bonus: $(OBJBONUS)
 	$(AR) $(NAME) $(OBJBONUS)
+
+.PHONY: all clean fclean re bonus

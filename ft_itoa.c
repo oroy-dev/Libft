@@ -6,13 +6,13 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 17:38:14 by oroy              #+#    #+#             */
-/*   Updated: 2023/02/22 12:21:34 by oroy             ###   ########.fr       */
+/*   Updated: 2023/03/08 15:42:48 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	char	*intostr(char *str, long n, unsigned char num, int mul)
+static char	*intostr(char *str, long n, unsigned char num, int mul)
 {
 	size_t	i;
 
@@ -60,9 +60,3 @@ char	*ft_itoa(int n)
 		return (NULL);
 	return (intostr(str, n, num, mul / 10));
 }
-
-// int	main(void)
-// {
-// 	printf ("%s\n", ft_itoa(0));
-// 	return (0);
-// }

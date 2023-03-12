@@ -6,12 +6,11 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:14:05 by oroy              #+#    #+#             */
-/*   Updated: 2023/02/24 18:56:13 by oroy             ###   ########.fr       */
+/*   Updated: 2023/03/08 18:33:57 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include "ft_calloc.c"
 
 t_list	*ft_lstnew(void *content)
 {
@@ -24,19 +23,3 @@ t_list	*ft_lstnew(void *content)
 	t->next = NULL;
 	return (t);
 }
-
-// int	main(void)
-// {
-// 	t_list	*t;
-// 	int		arr[3] = {1, 50, 38};
-// 	int		i;
-
-// 	i = 0;
-// 	t = ft_lstnew(arr);
-// 	while (i < 3)
-// 	{
-// 		printf ("%d\n", *((int *)t->content + i));
-// 		i++;
-// 	}
-// 	return (0);
-// }

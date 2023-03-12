@@ -6,7 +6,7 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:44:18 by oroy              #+#    #+#             */
-/*   Updated: 2023/02/16 10:21:21 by oroy             ###   ########.fr       */
+/*   Updated: 2023/03/08 14:20:56 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,3 @@ int	ft_tolower(int c)
 		c += 32;
 	return (c);
 }
-
-// int	main(void)
-// {
-// 	printf ("%c\n", ft_tolower('Z'));
-// 	printf ("%c\n", tolower('Z'));
-// 	return (0);
-// }
