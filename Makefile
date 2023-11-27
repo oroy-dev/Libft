@@ -3,85 +3,97 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+         #
+#    By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/15 10:43:51 by oroy              #+#    #+#              #
-#    Updated: 2023/03/09 17:24:01 by oroy             ###   ########.fr        #
+#    Updated: 2023/11/27 18:10:49 by olivierroy       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-CC = gcc
-AR = ar rcs
-RM = rm -f
-CFLAGS = -Wall -Werror -Wextra
+NAME	:=	libft.a
 
-SRC = 	ft_atoi.c \
-		ft_bzero.c \
-		ft_calloc.c \
-		ft_isalnum.c \
-		ft_isalpha.c \
-		ft_isascii.c \
-		ft_isdigit.c \
-		ft_isprint.c \
-		ft_itoa.c \
-		ft_memchr.c \
-		ft_memcmp.c \
-		ft_memcpy.c \
-		ft_memmove.c \
-		ft_memset.c \
-		ft_putchar_fd.c \
-		ft_putendl_fd.c \
-		ft_putnbr_fd.c \
-		ft_putstr_fd.c \
-		ft_split.c \
-		ft_strchr.c \
-		ft_strdup.c \
-		ft_striteri.c \
-		ft_strjoin.c \
-		ft_strlcat.c \
-		ft_strlcpy.c \
-		ft_strlen.c \
-		ft_strmapi.c \
-		ft_strncmp.c \
-		ft_strnstr.c \
-		ft_strrchr.c \
-		ft_strtrim.c \
-		ft_substr.c \
-		ft_tolower.c \
-		ft_toupper.c \
+OBJ_DIR	:=	obj
+SRC_DIR	:=	src
 
-BONUS = ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
-		ft_lstdelone.c \
-		ft_lstclear.c \
-		ft_lstiter.c \
-		ft_lstmap.c
+SRC		:=	$(SRC_DIR)/ft_atoi.c \
+			$(SRC_DIR)/ft_bzero.c \
+			$(SRC_DIR)/ft_calloc.c \
+			$(SRC_DIR)/ft_isalnum.c \
+			$(SRC_DIR)/ft_isalpha.c \
+			$(SRC_DIR)/ft_isascii.c \
+			$(SRC_DIR)/ft_isdigit.c \
+			$(SRC_DIR)/ft_isprint.c \
+			$(SRC_DIR)/ft_itoa.c \
+			$(SRC_DIR)/ft_memchr.c \
+			$(SRC_DIR)/ft_memcmp.c \
+			$(SRC_DIR)/ft_memcpy.c \
+			$(SRC_DIR)/ft_memmove.c \
+			$(SRC_DIR)/ft_memset.c \
+			$(SRC_DIR)/ft_putchar_fd.c \
+			$(SRC_DIR)/ft_putendl_fd.c \
+			$(SRC_DIR)/ft_putnbr_fd.c \
+			$(SRC_DIR)/ft_putstr_fd.c \
+			$(SRC_DIR)/ft_split.c \
+			$(SRC_DIR)/ft_strchr.c \
+			$(SRC_DIR)/ft_strdup.c \
+			$(SRC_DIR)/ft_striteri.c \
+			$(SRC_DIR)/ft_strjoin.c \
+			$(SRC_DIR)/ft_strlcat.c \
+			$(SRC_DIR)/ft_strlcpy.c \
+			$(SRC_DIR)/ft_strlen.c \
+			$(SRC_DIR)/ft_strmapi.c \
+			$(SRC_DIR)/ft_strncmp.c \
+			$(SRC_DIR)/ft_strnstr.c \
+			$(SRC_DIR)/ft_strrchr.c \
+			$(SRC_DIR)/ft_strtrim.c \
+			$(SRC_DIR)/ft_substr.c \
+			$(SRC_DIR)/ft_tolower.c \
+			$(SRC_DIR)/ft_toupper.c \
 
-OBJ = $(SRC:.c=.o)
+SRC_LST	:=	$(SRC_DIR)/ft_lstadd_back.c \
+			$(SRC_DIR)/ft_lstadd_front.c \
+			$(SRC_DIR)/ft_lstclear.c \
+			$(SRC_DIR)/ft_lstdelone.c \
+			$(SRC_DIR)/ft_lstiter.c \
+			$(SRC_DIR)/ft_lstlast.c \
+			$(SRC_DIR)/ft_lstmap.c \
+			$(SRC_DIR)/ft_lstnew.c \
+			$(SRC_DIR)/ft_lstsize.c \
 
-OBJBONUS = $(BONUS:.c=.o)
+OBJ		:=	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
+OBJ_LST	:=	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_LST))
+
+AR		:=	ar rcs
+CC 		:=	gcc
+CFLAGS	:=	-Wall -Werror -Wextra
+RM		:=	rm -rf
+
+COLOR_GREEN	:= \033[0;32m
+COLOR_RED	:= \033[0;31m
+COLOR_BLUE	:= \033[0;34m
+COLOR_END	:= \033[0m
+
+# ********************************** RULES *********************************** #
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+$(NAME): $(OBJ_DIR) $(OBJ) $(OBJ_LST)
+	@$(AR) $(NAME) $(OBJ) $(OBJ_LST)
+	@echo "Libft: $(COLOR_GREEN)$(NAME) created$(COLOR_END)"
+
+$(OBJ_DIR):
+	@mkdir $(OBJ_DIR)
 	
-%.o: %.c
-	$(CC) -c $(CFLAGS) $< -o $@
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@$(CC) -c $(CFLAGS) $< -o $@
+	@echo "Libft:$(COLOR_RED)$(patsubst $(OBJ_DIR)/%, %, $@)$(COLOR_END) \033[K\r\c"
 
 clean:
-	$(RM) $(OBJ) $(OBJBONUS)
+	@$(RM) $(OBJ_DIR)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
 
-bonus: $(OBJBONUS)
-	$(AR) $(NAME) $(OBJBONUS)
-
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
