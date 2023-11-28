@@ -6,7 +6,7 @@
 #    By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/15 10:43:51 by oroy              #+#    #+#              #
-#    Updated: 2023/11/27 18:10:49 by olivierroy       ###   ########.fr        #
+#    Updated: 2023/11/27 19:40:45 by olivierroy       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,8 +60,12 @@ SRC_LST	:=	$(SRC_DIR)/ft_lstadd_back.c \
 			$(SRC_DIR)/ft_lstnew.c \
 			$(SRC_DIR)/ft_lstsize.c \
 
+SRC_GNL	:=	$(SRC_DIR)/get_next_line.c \
+			$(SRC_DIR)/get_next_line_utils.c \
+
 OBJ		:=	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 OBJ_LST	:=	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_LST))
+OBJ_GNL	:=	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_GNL))
 
 AR		:=	ar rcs
 CC 		:=	gcc
@@ -77,16 +81,16 @@ COLOR_END	:= \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJ_DIR) $(OBJ) $(OBJ_LST)
-	@$(AR) $(NAME) $(OBJ) $(OBJ_LST)
-	@echo "Libft: $(COLOR_GREEN)$(NAME) created$(COLOR_END)"
+$(NAME): $(OBJ_DIR) $(OBJ) $(OBJ_LST) $(OBJ_GNL)
+	@$(AR) $(NAME) $(OBJ) $(OBJ_LST) $(OBJ_GNL)
+	@echo "libft: $(COLOR_GREEN)$(NAME) created$(COLOR_END) \033[K"
 
 $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)
 	
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(CC) -c $(CFLAGS) $< -o $@
-	@echo "Libft:$(COLOR_RED)$(patsubst $(OBJ_DIR)/%, %, $@)$(COLOR_END) \033[K\r\c"
+	@echo "libft:$(COLOR_RED)$(patsubst $(OBJ_DIR)/%, %, $@)$(COLOR_END) \033[K\r\c"
 
 clean:
 	@$(RM) $(OBJ_DIR)
