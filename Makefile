@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+         #
+#    By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/15 10:43:51 by oroy              #+#    #+#              #
-#    Updated: 2023/11/27 19:40:45 by olivierroy       ###   ########.fr        #
+#    Updated: 2023/11/30 14:02:47 by oroy             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME	:=	libft.a
 OBJ_DIR	:=	obj
 SRC_DIR	:=	src
 
-SRC		:=	$(SRC_DIR)/ft_atoi.c \
+SRC		:=	$(SRC_DIR)/ft_abs.c \
+			$(SRC_DIR)/ft_atoi.c \
 			$(SRC_DIR)/ft_bzero.c \
 			$(SRC_DIR)/ft_calloc.c \
 			$(SRC_DIR)/ft_isalnum.c \
@@ -60,11 +61,15 @@ SRC_LST	:=	$(SRC_DIR)/ft_lstadd_back.c \
 			$(SRC_DIR)/ft_lstnew.c \
 			$(SRC_DIR)/ft_lstsize.c \
 
+SRC_PTF	:=	$(SRC_DIR)/ft_printf.c \
+			$(SRC_DIR)/ft_printf_types.c \
+
 SRC_GNL	:=	$(SRC_DIR)/get_next_line.c \
 			$(SRC_DIR)/get_next_line_utils.c \
 
 OBJ		:=	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 OBJ_LST	:=	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_LST))
+OBJ_PTF	:=	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_PTF))
 OBJ_GNL	:=	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_GNL))
 
 AR		:=	ar rcs
@@ -81,16 +86,16 @@ COLOR_END	:= \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJ_DIR) $(OBJ) $(OBJ_LST) $(OBJ_GNL)
-	@$(AR) $(NAME) $(OBJ) $(OBJ_LST) $(OBJ_GNL)
-	@echo "libft: $(COLOR_GREEN)$(NAME) created$(COLOR_END) \033[K"
+$(NAME): $(OBJ_DIR) $(OBJ) $(OBJ_LST) $(OBJ_PTF) $(OBJ_GNL)
+	@$(AR) $(NAME) $(OBJ) $(OBJ_LST) $(OBJ_PTF) $(OBJ_GNL)
+	@echo "-> libft: $(COLOR_GREEN)$(NAME) created$(COLOR_END) \033[K"
 
 $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)
 	
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(CC) -c $(CFLAGS) $< -o $@
-	@echo "libft:$(COLOR_RED)$(patsubst $(OBJ_DIR)/%, %, $@)$(COLOR_END) \033[K\r\c"
+	@echo "-> libft:$(COLOR_RED)$(patsubst $(OBJ_DIR)/%, %, $@)$(COLOR_END) \033[K\r\c"
 
 clean:
 	@$(RM) $(OBJ_DIR)

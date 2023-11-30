@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+        */
+/*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:32:25 by oroy              #+#    #+#             */
-/*   Updated: 2023/11/27 19:36:42 by olivierroy       ###   ########.fr       */
+/*   Updated: 2023/11/30 14:05:27 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>
+# include <stdarg.h>
 # include <stdlib.h>
 # include <limits.h>
 
@@ -35,6 +36,7 @@ typedef struct s_buf
 	size_t	i;
 }	t_buf;
 
+int		ft_abs(int n);
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
@@ -49,10 +51,10 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putendl_fd(char *s, int fd);
+int		ft_putchar_fd(char c, int fd);
+int		ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-void	ft_putstr_fd(char *s, int fd);
+int		ft_putstr_fd(char *s, int fd);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
@@ -79,6 +81,13 @@ t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
+// Ft_printf ---------------------------------------------------------------- //
+int		ft_printf(const char *s, ...);
+int		print_hex(unsigned long u, char c, int fd);
+int		print_int(int i, int fd);
+int		print_p(unsigned long p, int fd);
+int		print_s(char *s, int fd);
+int		print_uint(unsigned int u, int fd);
 // GNL ---------------------------------------------------------------------- //
 char	*ft_strjoin_gnl(char *newline, char *line, char *buf, size_t buf_len);
 size_t	getbuflength(char *buf, unsigned char *n);

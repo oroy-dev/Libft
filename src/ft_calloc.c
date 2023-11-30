@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+        */
+/*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:44:37 by oroy              #+#    #+#             */
-/*   Updated: 2023/11/27 16:28:57 by olivierroy       ###   ########.fr       */
+/*   Updated: 2023/11/30 13:04:04 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,19 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*mem;
 	size_t	total;
+	size_t	i;
 
 	if (count >= SIZE_MAX || size >= SIZE_MAX)
 		return (NULL);
+	i = 0;
 	total = count * size;
-	mem = malloc(total * (sizeof(unsigned char)));
+	mem = malloc(total);
 	if (!mem)
 		return (NULL);
-	ft_bzero(mem, total);
+	while (i < total)
+	{
+		*((unsigned char *)mem + i) = '\0';
+		i++;
+	}
 	return (mem);
 }

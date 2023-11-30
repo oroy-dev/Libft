@@ -3,18 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+        */
+/*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:43:02 by oroy              #+#    #+#             */
-/*   Updated: 2023/11/27 16:28:57 by olivierroy       ###   ########.fr       */
+/*   Updated: 2023/11/30 13:09:50 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_putendl_fd(char *s, int fd)
 {
+	int	count;
+
+	count = 0;
 	if (s)
-		ft_putstr_fd(s, fd);
+		count = ft_putstr_fd(s, fd);
 	ft_putchar_fd('\n', fd);
+	return (++count);
 }
